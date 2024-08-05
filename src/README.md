@@ -86,10 +86,8 @@ cat deploy.json
 $ sudo chmod +x launch
 # 启动部署
 $ sudo ./launch -o start
-# 关闭服务 
+# 关闭服务
 $ sudo ./launch -o stop
-# 重启服务
-$ sudo ./launch -o restart
 ```
 
 ### 6. 关于fastgpt 部署提醒：

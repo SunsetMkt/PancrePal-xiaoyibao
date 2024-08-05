@@ -17,18 +17,16 @@ func main() {
 	libs.MakeConfig(workDir)
 	templates := libs.GetTemp()
 	for _, manifest := range container.ManiFests {
-		m := manifest
-		libs.ApplyTemplate(workDir, manifest, templates[m], container)
+		libs.ApplyTemplate(workDir, manifest, templates[manifest], container)
 	}
 	switch container.Operation {
 	case "start":
 		libs.Start(workDir, container.ManiFests)
-	case "restart":
-		libs.Restart(workDir, container.ManiFests)
 	case "stop":
 		libs.Stop(workDir, container.ManiFests)
+	case "backup":
+		fmt.Printf("developing")
 	default:
-		fmt.Printf("Unknown operation: [ %s ], \nexample: [ ./launch -o start (stop, restart) ] \n", container.Operation)
+		fmt.Printf("Unknown operation: [ %s ], \nexample: [ ./launch -o start (stop, backup) ] \n", container.Operation)
 	}
-	libs.Clean(workDir)
 }
